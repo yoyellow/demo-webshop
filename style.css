@@ -262,32 +262,49 @@ input[type="text"]:focus {
   text-decoration: none;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
-.emoji-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding: 0 2rem;
   list-style: none;
-  padding: 0;
-  margin: 3rem 0 0 0;
+}
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
 }
 .emoji-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  background: #fff;
-  /* border: 5px solid #111; */
-  border-radius: 18px;
-  font-size: 4rem;
+  width: 100px;
+  height: 100px;
+  background: var(--content-bg);
+  border-radius: 15px;
+  font-size: 2.5rem;
   text-decoration: none;
-  transition: box-shadow 0.18s, transform 0.18s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border: 2px solid var(--border-color);
 }
 .emoji-box:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-  transform: scale(1.07);
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transform: translateY(-3px);
+  border-color: var(--link-hover-color);
+}
+.product-item a:not(.emoji-box) {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+.product-item a:not(.emoji-box):hover {
+  color: var(--link-hover-color);
 }
 .content-box {
   width: 530px; /* or use calc(3 * 150px + 2 * 2.5rem) */

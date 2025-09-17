@@ -84,6 +84,39 @@ function renderBasketIndicator() {
   }
 }
 
+// Dark Mode Functions
+function initDarkMode() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateDarkModeButton(savedTheme);
+}
+
+function toggleDarkMode() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateDarkModeButton(newTheme);
+}
+
+function updateDarkModeButton(theme) {
+  const button = document.getElementById('darkModeToggle');
+  if (button) {
+    button.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+}
+
+// Initialize dark mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+  initDarkMode();
+  
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  }
+});
+
 // Call this on page load and after basket changes
 if (document.readyState !== "loading") {
   renderBasketIndicator();

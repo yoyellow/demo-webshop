@@ -3,6 +3,12 @@ const PRODUCTS = {
   banana: { name: "Banana", emoji: "🍌", price: 1.00 },
   lemon: { name: "Lemon", emoji: "🍋", price: 2.00 },
   pear: { name: "Pear", emoji: "🍐", price: 1.30 },
+  strawberry: { name: "Strawberry", emoji: "🍓", price: 2.50 },
+  orange: { name: "Orange", emoji: "🍊", price: 1.80 },
+  grapes: { name: "Grapes", emoji: "🍇", price: 3.00 },
+  kiwi: { name: "Kiwi", emoji: "🥝", price: 2.20 },
+  peach: { name: "Peach", emoji: "🍑", price: 2.80 },
+  cherry: { name: "Cherry", emoji: "🍒", price: 4.50 },
 };
 
 function getBasket() {

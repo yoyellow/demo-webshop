@@ -255,6 +255,16 @@ input[type="text"]:focus {
   display: inline-block;
   margin-right: 0.5rem;
 }
+.quantity {
+  font-weight: 700;
+  color: #e53935;
+  margin-left: 0.5rem;
+  background: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  border: 2px solid #e53935;
+  font-size: 1rem;
+}
 #basketList li {
   background: none !important;
 }

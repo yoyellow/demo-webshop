@@ -1,41 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
 
+/* CSS Variables for Light/Dark Mode */
+:root {
+  --bg-color: #f9f6f1;
+  --text-color: #222;
+  --header-bg: #f9f6f1;
+  --content-bg: #fff;
+  --button-bg: linear-gradient(90deg, #ffe259 0%, #ffa751 100%);
+  --button-color: #7a4c00;
+  --button-hover-bg: linear-gradient(90deg, #ffa751 0%, #ffe259 100%);
+  --button-hover-color: #a85c00;
+  --link-color: #000;
+  --link-hover-color: #0077ff;
+  --border-color: #cfd8e3;
+  --shadow-color: rgba(0, 0, 0, 0.04);
+  --input-bg: #f9fbfd;
+  --product-bg: #f7faff;
+  --product-hover-bg: #eaf2ff;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --header-bg: #2d2d2d;
+  --content-bg: #333333;
+  --button-bg: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+  --button-color: #ffffff;
+  --button-hover-bg: linear-gradient(90deg, #f7931e 0%, #ff6b35 100%);
+  --button-hover-color: #ffffff;
+  --link-color: #e0e0e0;
+  --link-hover-color: #64b5f6;
+  --border-color: #555555;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #404040;
+  --product-bg: #404040;
+  --product-hover-bg: #505050;
+}
+
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--link-color);
   font-weight: 500;
   font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 a:hover {
-  color: #0077ff;
+  color: var(--link-hover-color);
 }
 body {
   font-family: "Baloo 2", Arial, sans-serif;
   font-size: 1.3rem;
-  background: #f9f6f1;
+  background: var(--bg-color);
   margin: 0;
-  color: #222;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 header {
-  background: #f9f6f1;
+  background: var(--header-bg);
   padding: 1.2rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease;
 }
 nav a {
   margin-right: 1.2rem;
   text-decoration: none;
-  color: #222;
+  color: var(--text-color);
   font-weight: 500;
   font-size: 1.08rem;
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
 nav a:last-child {
   margin-right: 0;
 }
 nav a:hover {
-  color: #0077ff;
+  color: var(--link-hover-color);
+}
+.dark-mode-toggle {
+  background: var(--button-bg);
+  color: var(--button-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.dark-mode-toggle:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-color);
+  transform: scale(1.05);
 }
 main {
   max-width: none;
@@ -60,38 +118,39 @@ main {
   background: #eaf2ff;
 }
 button {
-  background: linear-gradient(90deg, #ffe259 0%, #ffa751 100%);
-  color: #7a4c00;
+  background: var(--button-bg);
+  color: var(--button-color);
   border: none;
   padding: 0.7rem 1.6rem;
   border-radius: 30px;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(255, 167, 81, 0.12);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: all 0.3s ease;
   letter-spacing: 0.5px;
 }
 button:hover {
-  background: linear-gradient(90deg, #ffa751 0%, #ffe259 100%);
-  color: #a85c00;
-  box-shadow: 0 4px 16px rgba(255, 167, 81, 0.18);
+  background: var(--button-hover-bg);
+  color: var(--button-hover-color);
+  box-shadow: 0 4px 16px var(--shadow-color);
   transform: scale(1.04);
 }
 input[type="text"] {
   padding: 0.5rem 0.8rem;
-  border: 1px solid #cfd8e3;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 1rem;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   width: 100%;
   box-sizing: border-box;
-  background: #f9fbfd;
-  transition: border 0.2s;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 input[type="text"]:focus {
-  border: 1.5px solid #0077ff;
+  border: 1.5px solid var(--link-hover-color);
   outline: none;
 }
 .order-list {
@@ -233,13 +292,14 @@ input[type="text"]:focus {
 .content-box {
   width: 530px; /* or use calc(3 * 150px + 2 * 2.5rem) */
   margin: 3rem auto 0 auto; /* center horizontally, same top margin as emoji-list */
-  background: #fff;
+  background: var(--content-bg);
   border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px var(--shadow-color);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .basket-indicator {
   position: absolute;
